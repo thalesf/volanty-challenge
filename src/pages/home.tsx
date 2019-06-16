@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../components/block/header'
+import Form from '../components/block/form';
 import Content from './style';
 
 class Home extends React.Component<{}, {}> {
@@ -10,7 +11,7 @@ class Home extends React.Component<{}, {}> {
       <div>
         <Header />
         <Content>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptate error dolorem tempore inventore ipsa, explicabo enim. Rerum officia asperiores dolor voluptatum odio repellat labore sapiente debitis consectetur nostrum, numquam at!</p>
+          <Form />
         </Content>
       </div>
     )
