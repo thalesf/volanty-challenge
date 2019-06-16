@@ -7,7 +7,6 @@ const Header: React.FC = () => {
     <header className="header">
       <HeaderWrapper>
         <Logo size={300} />
-        <h1> Header</h1>
       </HeaderWrapper>
     </header>
   )

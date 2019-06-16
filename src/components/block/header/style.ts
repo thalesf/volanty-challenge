@@ -7,5 +7,6 @@ const HeaderWrapper = styled.div`
 const LogoWrapper = styled.img`
   width: 160px;
   color: #fff;
+  padding: 10px;
 `;
 export { HeaderWrapper, LogoWrapper };

@@ -1,13 +1,14 @@
 import React from 'react';
 import Home from './pages/home';
+import Container from './style';
 import GlobalStyles from "./components/shared/GlobalStyles";
 
 const App: React.FC = () => {
   return (
-    <div className="App">
+    <Container>
       <GlobalStyles />
       <Home />
-    </div>
+    </Container>
   );
 }
 
