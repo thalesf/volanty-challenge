@@ -11,6 +11,8 @@ import { getCarBrands, getCarBrandId, getCarBrandIdCode, getCarBrandDetail } fro
 import { filterBrands } from '../../../lib/filter';
 import FormWrapper from './style';
 
+import { Heading } from '../../shared/text';
+
 // type OptionType = {
 //   id: number,
 //   label: string;
@@ -68,7 +70,7 @@ const Form: React.FC = () => {
 
   return (
     <FormWrapper>
-
+      <Heading color="#2167b2">Quanto vale meu carro?</Heading>
       <Select
         className="selectField"
         onChange={handleBrand}
