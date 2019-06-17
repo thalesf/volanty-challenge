@@ -20,4 +20,13 @@ const filterBrands = (brands: any): Car[] => {
   }));
 };
 
-export default filterBrands;
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+const filterCarYear = (data: any) => {
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  return data.map((car: any) => ({
+    id: car.id,
+    value: car.name,
+  }));
+};
+
+export { filterBrands, filterCarYear };

@@ -22,4 +22,23 @@ const getCarBrandId = async (id: number): Promise<string> => {
   }
 };
 
-export { getCarBrands, getCarBrandId };
+const getCarBrandIdCode = async (id: number, code: number): Promise<string> => {
+  try {
+    const { data } = await api.get(`/veiculo/${id}/${code}.json`);
+    return data;
+  } catch (error) {
+    throw new Error('Não foi possivel carregar os códigos do modelo espeficicado');
+  }
+};
+
+const getCarBrandDetail = async (id: number, code: number, year: string): Promise<string> => {
+  try {
+    console.log('BRAND DETAIL FUNC', id, code, year);
+    const { data } = await api.get(`/veiculo/${id}/${code}/${year}.json`);
+    return data;
+  } catch (error) {
+    throw new Error('Não foi possivel carregar os códigos do modelo com o ano espeficicado');
+  }
+};
+
+export { getCarBrands, getCarBrandId, getCarBrandIdCode, getCarBrandDetail };
