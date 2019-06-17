@@ -14,7 +14,7 @@ export interface BrandCar {
 const filterBrands = (brands: any): Car[] => {
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   return brands.map((data: any) => ({
-    id: data.name,
+    id: data.id,
     label: data.name,
     value: data.name,
   }));

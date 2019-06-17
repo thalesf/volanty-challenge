@@ -13,4 +13,13 @@ const getCarBrands = async (): Promise<string> => {
   }
 };
 
-export default getCarBrands;
+const getCarBrandId = async (id: number): Promise<string> => {
+  try {
+    const { data } = await api.get(`/veiculos/${id}.json`);
+    return data;
+  } catch (error) {
+    throw new Error('Não foi possivel carregar os modelos especificados');
+  }
+};
+
+export { getCarBrands, getCarBrandId };
