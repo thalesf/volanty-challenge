@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Select from 'react-select';
+import { IoIosCar, IoMdCalendar } from 'react-icons/io';
+import { MdAttachMoney, MdLocalGasStation, MdDirectionsCar } from 'react-icons/md';
+
+import { IconContext } from 'react-icons';
+
 // import { ValueType } from 'react-select/lib/types';
 
 import { getCarBrands, getCarBrandId, getCarBrandIdCode, getCarBrandDetail } from '../../../models/client';
 import { filterBrands } from '../../../lib/filter';
+import FormWrapper from './style';
 
 // type OptionType = {
 //   id: number,
@@ -12,9 +18,6 @@ import { filterBrands } from '../../../lib/filter';
 // };
 
 const Form: React.FC = () => {
-
-  // const [brand, setBrand] = useState();  
-
   const [brands, setBrands] = useState();
   useEffect(() => {
     async function getCars() {
@@ -29,7 +32,7 @@ const Form: React.FC = () => {
   const [id, setBrandId] = useState();
   const [carBrands, setCarBrands] = useState();
 
-  const selectBrand = (event: any) => {
+  const handleBrand = (event: any) => {
     async function getBrandById() {
       const carsId = await getCarBrandId(event.id);
       const carBrandId = filterBrands(carsId);
@@ -42,7 +45,7 @@ const Form: React.FC = () => {
 
   const [carCode, setCarCode] = useState();
   const [codeId, setCodeId] = useState();
-  const selectBrandCode = (code: any) => {
+  const handleBrandCode = (code: any) => {
     async function getBrandByCode() {
       const carsCode = await getCarBrandIdCode(id, code.id);
       const carsBrandCode = filterBrands(carsCode);
@@ -54,7 +57,7 @@ const Form: React.FC = () => {
   }
 
   const [carDetail, setcarDetail] = useState();
-  const selectCarDetail = (detail: any) => {
+  const CarDetail = (detail: any) => {
     async function getBrandDetail() {
       const carsDetail = await getCarBrandDetail(id, codeId, detail.id);
       setcarDetail(carsDetail);
@@ -64,34 +67,66 @@ const Form: React.FC = () => {
   }
 
   return (
-    <>
-      <ul>
-        <Select
-          onChange={selectBrand}
-          options={brands}
-        />
+    <FormWrapper>
 
-        <Select
-          onChange={selectBrandCode}
-          options={carBrands}
-        />
+      <Select
+        className="selectField"
+        onChange={handleBrand}
+        options={brands}
+        placeholder="Marca"
+      />
 
-        <Select
-          onChange={selectCarDetail}
-          options={carCode}
-        />
+      <Select
+        className="selectField"
+        onChange={handleBrandCode}
+        options={carBrands}
+        placeholder="Modelo"
+        noOptionsMessage={() => 'Selecione a marca do carro'}
+      />
 
-        {carDetail && (
-          <div>
-            <h1>{carDetail.marca}</h1> 
-            <h2>{carDetail.name}</h2> 
-            <h3>{carDetail.ano_modelo}</h3>
-            <h3>{carDetail.combustivel}</h3> 
-            <h3>{carDetail.preco}</h3> 
-          </div>
-        )}
-      </ul>
-    </>
+      <Select
+        className="selectField"
+        onChange={CarDetail}
+        options={carCode}
+        placeholder="Ano"
+        noOptionsMessage={() => 'Selecione o modelo do carro'}
+      />
+
+      {carDetail && (
+        <div>
+          <h1>
+            <IconContext.Provider value={{ style: { verticalAlign: 'middle', paddingRight: 20 } }}>
+              <IoIosCar size={32} /> {carDetail.marca}
+            </IconContext.Provider>
+          </h1>
+
+          <h3>
+            <IconContext.Provider value={{ style: { verticalAlign: 'middle', paddingRight: 20 } }}>
+              <MdDirectionsCar size={26} /> {carDetail.name}
+            </IconContext.Provider>
+          </h3>
+
+          <h3>
+            <IconContext.Provider value={{ style: { verticalAlign: 'middle', paddingRight: 20 } }}>
+              <IoMdCalendar size={26} /> {carDetail.ano_modelo}
+            </IconContext.Provider>
+          </h3>
+
+          <h3>
+            <IconContext.Provider value={{ style: { verticalAlign: 'middle', paddingRight: 20 } }}>
+              <MdLocalGasStation size={29} /> {carDetail.combustivel}
+            </IconContext.Provider>
+          </h3>
+
+          <h1 style={{ color: '#2167b2 ' }} >
+            <IconContext.Provider value={{ style: { verticalAlign: 'middle', paddingRight: 20 } }}>
+              <MdAttachMoney size={32} /> {carDetail.preco}
+            </IconContext.Provider>
+          </h1>
+        </div>
+      )}
+
+    </FormWrapper>
   )
 }
 

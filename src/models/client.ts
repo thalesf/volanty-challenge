@@ -33,7 +33,6 @@ const getCarBrandIdCode = async (id: number, code: number): Promise<string> => {
 
 const getCarBrandDetail = async (id: number, code: number, year: string): Promise<string> => {
   try {
-    console.log('BRAND DETAIL FUNC', id, code, year);
     const { data } = await api.get(`/veiculo/${id}/${code}/${year}.json`);
     return data;
   } catch (error) {
