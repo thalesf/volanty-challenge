@@ -36,3 +36,5 @@ $ npm install or yarn
 $ npm start or yarn start
 # visit http://localhost:3000
 ```
+<hr />
+Developed By Thales Ferreira 
