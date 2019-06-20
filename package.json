@@ -1,7 +1,13 @@
 {
   "name": "volanty-challenge",
+  "description": "Front End Challenge Volanty",
+  "author": {
+    "name": "Thales",
+    "email": "thales.fdasilva@gmail.com"
+  },
   "version": "0.1.0",
   "private": true,
+  "license": "ISC",
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
