@@ -8,7 +8,7 @@ import { getCarBrands, getCarBrandId, getCarBrandIdCode, getCarBrandDetail } fro
 import { filterBrands } from '../../../lib/filter';
 import FormWrapper from './style';
 
-import { Heading } from '../../shared/text';
+import { Heading, HeadingNormal } from '../../shared/text';
 
 const Form: React.FC = () => {
   const [brands, setBrands] = useState();
@@ -71,6 +71,7 @@ const Form: React.FC = () => {
         onChange={handleBrand}
         options={brands}
         placeholder="Marca"
+        noOptionsMessage={() => 'Carregando...'}
       />
 
       <Select
@@ -90,37 +91,37 @@ const Form: React.FC = () => {
       />
 
       {carDetail && (
-        <div>
-          <h1>
+        <>
+          <Heading>
             <IconContext.Provider value={{ style: { verticalAlign: 'middle', paddingRight: 20 } }}>
               <IoIosCar size={32} /> {carDetail.marca}
             </IconContext.Provider>
-          </h1>
+          </Heading>
 
-          <h3>
+          <HeadingNormal>
             <IconContext.Provider value={{ style: { verticalAlign: 'middle', paddingRight: 20 } }}>
               <MdDirectionsCar size={26} /> {carDetail.name}
             </IconContext.Provider>
-          </h3>
+          </HeadingNormal>
 
-          <h3>
+          <HeadingNormal>
             <IconContext.Provider value={{ style: { verticalAlign: 'middle', paddingRight: 20 } }}>
               <IoMdCalendar size={26} /> {carDetail.ano_modelo}
             </IconContext.Provider>
-          </h3>
+          </HeadingNormal>
 
-          <h3>
+          <HeadingNormal>
             <IconContext.Provider value={{ style: { verticalAlign: 'middle', paddingRight: 20 } }}>
               <MdLocalGasStation size={29} /> {carDetail.combustivel}
             </IconContext.Provider>
-          </h3>
+          </HeadingNormal>
 
           <Heading color="#2167b2" >
             <IconContext.Provider value={{ style: { verticalAlign: 'middle', paddingRight: 20 } }}>
               <MdAttachMoney size={32} /> {carDetail.preco}
             </IconContext.Provider>
           </Heading>
-        </div>
+        </>
       )}
 
     </FormWrapper>
