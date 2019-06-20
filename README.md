@@ -27,12 +27,12 @@ Evita bugs em comuns em Javascript, possibilidade uso de tipagem estática, Inte
 
 ## :computer:	Desktop Screenshoot
 
-![volanty](https://user-images.githubusercontent.com/11466066/59874668-2e5fd580-9375-11e9-98ca-1d6a85b581d5.PNG)
+![volanty](https://user-images.githubusercontent.com/11466066/59886508-98887280-9395-11e9-8960-e98e72d8c3ca.PNG)
+
 
 ## :iphone: Mobile Screenshoot
 
 ![volanty-mobile](https://user-images.githubusercontent.com/11466066/59874821-96aeb700-9375-11e9-80f3-5ece95a9e9cf.PNG)
-
 
 
 ## :zap: Usage
@@ -46,5 +46,6 @@ $ npm install or yarn
 $ npm start or yarn start
 # visit http://localhost:3000
 ```
+
 <hr />
 Developed By Thales Ferreira 
