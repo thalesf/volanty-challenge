@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 export interface Car {
   id: number;
   label: string;
@@ -12,18 +14,15 @@ export interface BrandCar {
   id: number;
 }
 const filterBrands = (brands: any): Car[] => {
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  return brands.map((data: any) => ({
+  return brands.map((data: BrandCar) => ({
     id: data.id,
     label: data.name,
     value: data.name,
   }));
 };
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const filterCarYear = (data: any) => {
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  return data.map((car: any) => ({
+  return data.map((car: BrandCar) => ({
     id: car.id,
     value: car.name,
   }));
