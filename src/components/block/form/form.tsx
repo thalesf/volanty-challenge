@@ -4,20 +4,11 @@ import { IoIosCar, IoMdCalendar } from 'react-icons/io';
 import { MdAttachMoney, MdLocalGasStation, MdDirectionsCar } from 'react-icons/md';
 
 import { IconContext } from 'react-icons';
-
-// import { ValueType } from 'react-select/lib/types';
-
 import { getCarBrands, getCarBrandId, getCarBrandIdCode, getCarBrandDetail } from '../../../models/client';
 import { filterBrands } from '../../../lib/filter';
 import FormWrapper from './style';
 
 import { Heading } from '../../shared/text';
-
-// type OptionType = {
-//   id: number,
-//   label: string;
-//   value: number
-// };
 
 const Form: React.FC = () => {
   const [brands, setBrands] = useState();
@@ -29,7 +20,6 @@ const Form: React.FC = () => {
     }
     getCars();
   }, []);
-
 
   const [id, setBrandId] = useState();
   const [carBrands, setCarBrands] = useState();
@@ -44,6 +34,7 @@ const Form: React.FC = () => {
 
     getBrandById();
   }
+
 
   const [carCode, setCarCode] = useState();
   const [codeId, setCodeId] = useState();
@@ -67,6 +58,10 @@ const Form: React.FC = () => {
 
     getBrandDetail();
   }
+
+  useEffect(() => {
+    setcarDetail(null)
+  }, [id, codeId]);
 
   return (
     <FormWrapper>
@@ -120,11 +115,11 @@ const Form: React.FC = () => {
             </IconContext.Provider>
           </h3>
 
-          <h1 style={{ color: '#2167b2 ' }} >
+          <Heading color="#2167b2" >
             <IconContext.Provider value={{ style: { verticalAlign: 'middle', paddingRight: 20 } }}>
               <MdAttachMoney size={32} /> {carDetail.preco}
             </IconContext.Provider>
-          </h1>
+          </Heading>
         </div>
       )}
 
